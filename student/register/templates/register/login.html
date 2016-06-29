@@ -1,0 +1,34 @@
+{%extends "register/layout.html"%}
+
+{%block title%}
+  login here
+{%endblock%}
+
+{%block body%}
+  {%include "includes/header.html"%}
+
+  <div class="container">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Login here</h3>
+      </div>
+      <div class="panel-body">
+        {% if messages %}
+    {% for message in messages %}
+    <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+    {% endfor %}
+{% endif %}
+        <form class="" action="" method="POST">
+          {% load bootstrap %}
+          {{ form|bootstrap}}
+          {%csrf_token%}
+          <input type="submit" name="submit" value="submit">
+        </form>
+        </div>
+
+      </div>
+  </div>
+  </div>
+
+  {%include "includes/footer.html"%}
+{%endblock%}
